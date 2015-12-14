@@ -1,0 +1,68 @@
+var imgList = [];
+
+var onRun = function(context) {
+
+  var doc = context.document;
+  doc.currentPage().deselectAllLayers();
+
+  var pages = [doc pages];
+
+
+
+  // Loop through all artboards
+  for(var p=0; p<[pages count]; p++){
+
+    var page = pages[p];
+    var artboards = [page artboards];
+
+
+    // Loop through artboards on current page
+    for(var i=0; i< [artboards count]; i++){
+
+      var artboard = artboards[i];
+      var layers = artboard.layers();
+
+      // Loop through all layers on artboard
+      for(var x=0; x< [layers count]; x++){
+        var layer = layers.array()[x];
+        
+        exploreLayers(layer);
+      }
+    }
+  }
+
+  succesMessage(imgList);
+}
+
+
+
+function succesMessage(imgList) {
+  
+  var imgListAmount = imgList.length;
+
+  var app = NSApplication.sharedApplication();
+  app.displayDialog_withTitle("We just optimized "+ imgListAmount +" images.", "Well done!");
+}
+
+function exploreLayers(layer){
+  if(layer && layer.isKindOfClass(MSLayerGroup)) {
+    layers = layer.layers();
+
+    for(var x=0; x< [layers count]; x++){
+        var layer = layers.array()[x];
+        exploreLayers(layer);
+    }
+  } 
+  else {
+    optimizeBitmapLayers(layer);
+  }
+}
+
+function optimizeBitmapLayers(layer){
+ if(layer && layer.isKindOfClass(MSBitmapLayer)) {
+        layer.reduceImageSize();
+        var layerName = layer.name();
+
+        imgList.push(layerName);
+    }   
+}

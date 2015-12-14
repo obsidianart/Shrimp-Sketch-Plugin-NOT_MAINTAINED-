@@ -1,0 +1,24 @@
+{
+  "name": "Optimize images",
+  "description" : "Reduce image sizes",
+  "author" : "Jaer Pollux",
+  "authorEmail" : "jaer@digitalnatives.nl",
+  "homepage": "",
+  "version" : "1.0",
+  "identifier" : "com.peerjollux.optimizeimages",
+  "compatibleVersion": "3.3",
+  "bundleVersion": "1",
+  "commands" : [
+    {
+      "name" : "All artboards in document",
+      "script" : "src/reduceImageSize.cocoascript",
+      "handler" : "onRun",
+      "identifier" : "optimize"
+    }
+  ],
+  "menu" : {
+    "items" :[
+      "optimize"
+    ]
+  }
+}
