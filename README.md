@@ -3,7 +3,7 @@ Sketch plugin for optimizing all images within your document.
 
 
 # Installation
-1. Download the [plugin](https://github.com/peerjollux/Sketch-OptimizeImages/master "Sketch Optimize Images plugin")
+1. Download the [plugin](https://github.com/peerjollux/Shrimp-Sketch-Plugin/tree/master "Sketch Optimize Images plugin")
 2. Double click the plugin file
 3. Ready to go
 
